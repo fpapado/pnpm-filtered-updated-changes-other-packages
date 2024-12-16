@@ -10,6 +10,8 @@ Update react to latest only for pakage `a` (such that react@19.0.0 is resolved):
 
 ```shell
 pnpm --filter a update --latest react
+
+# Optional (the observed behaviour seems the same regardless).
 pnpm install
 ```
 
