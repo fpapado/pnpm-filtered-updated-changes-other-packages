@@ -10,9 +10,10 @@ Update react to latest only for pakage `a` (such that react@19.0.0 is resolved):
 
 ```shell
 pnpm --filter a update --latest react
+pnpm install
 ```
 
-Observe that the lockfile has changed for package `b` as well:
+Observe the lockfile diff, and that `react@19.0.0` is resolved also for `b`.  The `package.json` of `b` is unaffected.
 
 ```diff
 diff --git a/packages/a/package.json b/packages/a/package.json
