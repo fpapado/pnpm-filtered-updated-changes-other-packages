@@ -15,7 +15,7 @@ pnpm --filter a update --latest react
 pnpm install
 ```
 
-Observe the lockfile diff, and that `react@19.0.0` is updated/resolved also for `b`, and `is-positive@3.1.0` is update/resolved for `c`.  The `package.json`s of `b` and `c` are unaffected.
+Observe the lockfile diff, and that `react@19.0.0` is resolved also for `b`.  The `package.json` of `b` is unaffected.
 
 ```diff
 diff --git a/packages/a/package.json b/packages/a/package.json
@@ -31,10 +31,10 @@ index 64bd07f..1dfb9e1 100644
    }
  }
 diff --git a/pnpm-lock.yaml b/pnpm-lock.yaml
-index 557d92b..3d7dbc1 100644
+index b3fe1d8..0cbf890 100644
 --- a/pnpm-lock.yaml
 +++ b/pnpm-lock.yaml
-@@ -11,48 +11,33 @@ importers:
+@@ -11,36 +11,21 @@ importers:
    packages/a:
      dependencies:
        react:
@@ -42,29 +42,16 @@ index 557d92b..3d7dbc1 100644
 -        version: 18.3.0
 +        specifier: 19.0.0
 +        version: 19.0.0
- 
+
    packages/b:
      dependencies:
        react:
          specifier: 18.3.0
 -        version: 18.3.0
 +        version: 19.0.0
- 
-   packages/c:
-     dependencies:
-       is-positive:
-         specifier: 1.0.0
--        version: 1.0.0
-+        version: 3.1.0
- 
+
  packages:
- 
--  is-positive@1.0.0:
--    resolution: {integrity: sha512-xxzPGZ4P2uN6rROUa5N9Z7zTX6ERuE0hs6GUOc/cKBLF2NqKc16UwqHMt3tFg4CO6EBTE5UecUasg+3jZx3Ckg==}
-+  is-positive@3.1.0:
-+    resolution: {integrity: sha512-8ND1j3y9/HP94TOvGzr69/FgbkX2ruOldhLEsTWwcJVfo4oRjwemJmJxt7RJkKYH8tz7vYBP9JcKQY8CLuJ90Q==}
-     engines: {node: '>=0.10.0'}
- 
+
 -  js-tokens@4.0.0:
 -    resolution: {integrity: sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==}
 -
@@ -77,12 +64,9 @@ index 557d92b..3d7dbc1 100644
 +  react@19.0.0:
 +    resolution: {integrity: sha512-V8AVnmPIICiWpGfm6GLzCR/W5FXLchHop40W4nXBmdlEceh16rCN8O8LNWm5bh5XUX91fh7KpA+W0TgMKmgTpQ==}
      engines: {node: '>=0.10.0'}
- 
+
  snapshots:
- 
--  is-positive@1.0.0: {}
-+  is-positive@3.1.0: {}
- 
+
 -  js-tokens@4.0.0: {}
 -
 -  loose-envify@1.4.0:
